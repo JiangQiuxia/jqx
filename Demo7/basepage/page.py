@@ -16,4 +16,3 @@ class Page():
     def switch_frame_index(self,driver,index):
         driver.switch_to.frame(index)
 
-
