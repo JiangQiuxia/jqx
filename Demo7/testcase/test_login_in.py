@@ -21,3 +21,7 @@ class Test_login_in(unittest.TestCase):
     @parameterized.expand([("123", "aaa"),("456", "bbb")])
     def test_login_in(self, email, password):
         self.homepage.login_in(self.driver, email, password)
+
+    @pytest.mark.checklink
+    def test_page_link(self):
+        self.homepage.page_link(self.driver)

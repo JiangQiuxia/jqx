@@ -1,4 +1,7 @@
+import xlrd
+
 from basepage.page import Page
+from data.util import read_excel
 from driver.driver import chrome_driver
 from data.homepage_element import Homepage_Element
 
@@ -24,12 +27,19 @@ class Homepage(Page, Homepage_Element):
             driver.find_element_by_xpath(self.checkbox).click()
 
         self.take_screenshot(driver, "homepage.png")
-
         driver.find_element_by_xpath(self.login).click()
 
         assert ("success" in driver.current_url), "login failed"
 
+    def page_link(self, driver):
+        company_email_url = driver.find_element_by_xpath(self.enterprise_email).get_attribute('href')
+        print(company_email_url)
+        dicts = read_excel('data/url.xls')
+        assert (dicts['company_email'] == company_email_url),'company email url not match'
+        print('111')
+
+
+
 # main函数只有在当前文件才会执行
 if __name__ == '__main__':
-    TestDemo7 = Homepage()
-    TestDemo7.login_in(chrome_driver())
+    homepage =Homepage()

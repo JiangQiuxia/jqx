@@ -6,3 +6,4 @@ class Homepage_Element():
         self.password_element = "//input[@name='password']"
         self.checkbox = "//input[@id='un-login']"
         self.login = "//a[@id='dologin']"
+        self.enterprise_email = "//*[contains(text(),'企业邮箱')]"

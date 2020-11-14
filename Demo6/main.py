@@ -9,20 +9,18 @@ import time
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger()
 
-class Main(unittest.TestCase):
-    def main1(self):
+class Main():
+    def main(self):
         try:
-            driver = webdriver.Chrome()
-            username = 'qiuxia_jiang'
-            password = 'aa123456'
+            self.driver = webdriver.Chrome()
             login = Test_User_Login()
-            login.test_user_login1(driver, username, password)
-            sleep(3)
-            login_pass_url = driver.current_url
+            login.test_user_login1()
+            # sleep(3)
+            login_pass_url = self.driver.current_url
             assert ('mail163_letter#module=welcome.WelcomeModule%7C%7B%7D' in login_pass_url)
             logger.info('login successfully')
         finally:
-            driver.quit()
+            self.driver.quit()
 
 if __name__ == '__main__':
     suite_cases=unittest.defaultTestLoader.discover(".",pattern="test*.py")
