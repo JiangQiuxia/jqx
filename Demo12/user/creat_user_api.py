@@ -6,9 +6,13 @@ from data.readexcel import read_Excel
 
 def creat_User_Api(url, data):
     r = requests.post(url,json=data)
-    assert (r.status_code==300),f"creat failed:{r.status_code}"
-    # dicts = r.json()
-    # assert ("200" == dicts["code"]),f"creat user failed:{dicts['code']}"
+    # assert (r.status_code==300),f"creat failed:{r.status_code}"
+    dicts = r.json()
+    assert ("300" == dicts["code"]),f"creat user failed:{dicts['code']}"
+
+def get_Api(url):
+    r = requests.get(url)
+    assert (r.status_code == 300), f"creat failed:{r.status_code}"
 
 
 
