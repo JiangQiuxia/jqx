@@ -4,7 +4,7 @@ import ast
 from data.readexcel import read_Excel
 
 
-def creat_User_Api(url, data):
+def creat_User_Api(url,data):
     r = requests.post(url,json=data)
     # assert (r.status_code==300),f"creat failed:{r.status_code}"
     dicts = r.json()

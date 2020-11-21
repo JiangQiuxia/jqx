@@ -17,8 +17,8 @@ class Test_login_in(unittest.TestCase):
     def tearDown(self):
         self.driver.close()
 
-    # @pytest.mark.parametrize("email, password", [("123", "aaa")])
-    @parameterized.expand([("123", "aaa"),("456", "bbb")])
+    @pytest.mark.parametrize("email, password", [("123", "aaa")])
+    # @parameterized.expand([("123", "aaa"),("456", "bbb")])
     def test_login_in(self, email, password):
         self.homepage.login_in(self.driver, email, password)
 
