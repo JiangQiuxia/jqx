@@ -11,7 +11,8 @@ def read_excel(file_path):
     dicts['company_email'] = company_email
     dicts['VIP_email'] = VIP_email
     dicts['member_email'] = member_email
-    return dicts
+    print(type(company_email))
+    # return dicts
 
 
 if __name__ == '__main__':
