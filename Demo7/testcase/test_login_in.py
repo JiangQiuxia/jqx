@@ -11,7 +11,7 @@ from page.homepage import Homepage
 class Test_login_in(unittest.TestCase):
     def setUp(self):
         self.driver = chrome_driver()
-        self.driver.get("https://mail.163.com/")
+        self.driver.get("")
         self.homepage = Homepage()
 
     def tearDown(self):
